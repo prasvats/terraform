@@ -1,0 +1,15 @@
+#  Local .terraform directories
+**/.terraform/*
+
+.terraform
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+*.lock.hcl
+
+# aws backend file
+*-backend.tf
