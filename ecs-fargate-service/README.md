@@ -40,6 +40,30 @@ terraform {
 }
 ```
 
+## Adding a new microservice
+
+Add service configuration in form of module as show in main.tf
+
+- Source for the module will be the ecs-service-task.
+- Defination of this module parameter can be derived from variable of ecs-service-task.
+
+```bash
+module "example_fronted" {
+  source        = "./module/ecs-service-task"
+  name          = "doc-fe"
+  vpc_id        = var.vpc_id
+  app_port      = 80
+  cluster_id    = var.cluster_id
+  vpc_subnets   = var.vpc_subnets
+  lb_name       = "example-prod-shared-one-asp"
+  listener_port = 443
+  environment   = var.environment
+  dns_name      = "staging.example.com"
+  tags          = var.tags
+  priority      = 1012
+}
+```
+
 ## Usage
 
 Step1: Initialize the terraform directory
